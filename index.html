@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#080b18"><meta name="description" content="Play a virtual air guitar with your hands and camera.">
+<link rel="manifest" href="manifest.webmanifest"><title>AirGuitar — Virtual Guitar</title>
+<style>
+:root{color-scheme:dark;--bg:#080b18;--panel:#10172a;--cyan:#55e7ff;--purple:#b28cff;--muted:#9aa7c4}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#1d2750 0%,var(--bg) 60%);color:#f5f7ff;font:15px system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}header{display:flex;justify-content:space-between;align-items:center;padding:16px 18px}h1{font-size:20px;letter-spacing:.04em;margin:0}h1 span{color:var(--cyan)}.tag{font-size:11px;color:var(--muted);letter-spacing:.12em}.stage{position:relative;margin:0 12px;border:1px solid #263557;border-radius:20px;overflow:hidden;background:#050817;aspect-ratio:4/5;max-height:62vh;box-shadow:0 0 35px #33dfff16}.stage video{position:absolute;width:100%;height:100%;inset:0;object-fit:cover;transform:scaleX(-1)}.stage canvas{position:absolute;width:100%;height:100%;inset:0;z-index:2}.placeholder{position:absolute;inset:0;display:grid;place-content:center;text-align:center;padding:28px;color:var(--muted);z-index:1}.placeholder b{font-size:18px;color:white;margin-bottom:8px}.hud{position:absolute;z-index:3;left:12px;right:12px;top:12px;display:flex;justify-content:space-between;pointer-events:none}.pill{background:#080d20c9;border:1px solid #34446b;border-radius:30px;padding:7px 11px;font-size:11px;backdrop-filter:blur(8px)}.controls{padding:14px 14px 28px;max-width:680px;margin:auto}.row{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.btn{border:1px solid #34446b;background:#111a30;color:#edf4ff;padding:11px 15px;border-radius:13px;font-weight:650;cursor:pointer}.btn.primary{background:linear-gradient(110deg,#176b86,#5845a7);border:0}.btn.active{border-color:var(--cyan);box-shadow:0 0 14px #55e7ff33;color:var(--cyan)}.btn:disabled{opacity:.45}.section{margin-top:14px;background:#10172ac9;border:1px solid #253454;border-radius:17px;padding:13px}.label{font-size:11px;color:var(--muted);letter-spacing:.13em;text-transform:uppercase;margin-bottom:10px}.chords{display:grid;grid-template-columns:repeat(6,1fr);gap:7px}.chords .btn{padding:10px 2px}.status{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.5}.hint{color:#a7b6d6;font-size:12px;line-height:1.5;margin-top:10px}.footer{text-align:center;color:#62708f;font-size:11px;padding:8px 0 18px}
+</style></head>
+<body>
+<header><div><h1> AIR<span>GUITAR</span> ✦</h1><div class="tag">PLAY MUSIC IN THE AIR</div></div><div class="pill" id="state">CAMERA OFF</div></header>
+<main>
+<div class="stage"><video id="video" playsinline muted></video><canvas id="fx"></canvas><div class="placeholder" id="placeholder"><b>Your virtual guitar is waiting</b><span>Start the camera, raise both hands<br>and pluck across the glowing strings.</span></div><div class="hud"><div class="pill" id="hands">Hands: 0</div><div class="pill" id="note">Ready to play</div></div></div>
+<div class="controls">
+<div class="row" style="margin-top:13px"><button class="btn primary" id="start">▶ Start camera</button><button class="btn" id="stop" disabled>Stop</button><button class="btn" id="sound">♫ Sound: ON</button></div>
+<div class="section"><div class="label">Chord selector · left-hand accompaniment</div><div class="chords" id="chords"></div><div class="status" id="chordInfo">Current chord: C major</div></div>
+<div class="section"><div class="label">Playing guide</div><div class="hint">① Hold your phone steady in landscape or portrait mode. ② Show your hands clearly. ③ Move your index fingertip across one of the six horizontal neon strings to pluck it. ④ Choose a chord above to change the guitar harmony. A quick fingertip crossing triggers a note.</div></div>
+<div class="status" id="status">Camera permission is required. Use HTTPS or install from a secure website.</div>
+</div></main><div class="footer">AIRGUITAR · CAMERA PROCESSING RUNS ON YOUR DEVICE</div>
+<script type="module" src="app.js"></script>
+</body></html>
